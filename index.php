@@ -22,11 +22,10 @@
 	include "navigationBar.php";
 	include "sidebar.php";
 
-	$HOST = "mysql16.000webhost.com";
-	$USER = "a1207985_entropy";
-	$PASS = "V#45tea";
-	$DB = "a1207985_gdb";
-	$TABLE = "consoles";
+	$HOST = "localhost";
+	$USER = "root";
+	$PASS = "";
+	$DB = "gdb";
 	$query = "SELECT * FROM {$TABLE} ORDER BY id";
 	$link = mysqli_connect($HOST, $USER, $PASS, $DB);
 	$arrayOfConsoles = $link->query($query);
