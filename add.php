@@ -59,7 +59,8 @@
 				$image = $_POST["image"];
 			}
 
-			$query = "INSERT INTO `gdb`.`games` (`id`, `name`, `console`, `publisher`, `publish_date`, `price`, `image`) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', NULL, {$image})";
+			$query = "INSERT INTO `gdb`.`games` (`id`, `name`, `console`, `publisher`, `publish_date`, `price`, `image`) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', NULL, '{$image}')";
+			echo $query;
 			$link = mysqli_connect($HOST, $USER, $PASS, $DB);
 			$link->query($query);
 			$name = str_replace("\'", "'", $name);

@@ -26,6 +26,7 @@
 	$USER = "root";
 	$PASS = "";
 	$DB = "gdb";
+	$TABLE = "consoles";
 	$query = "SELECT * FROM {$TABLE} ORDER BY id";
 	$link = mysqli_connect($HOST, $USER, $PASS, $DB);
 	$arrayOfConsoles = $link->query($query);
