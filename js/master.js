@@ -6,15 +6,19 @@ var $sidebar = $("#sidebarContainer"),
 
 
 $window.scroll(function(){
-        if ($window.scrollTop() > $offset.top) {
+        if ($window.scrollTop()+20 > $offset.top) {
         	//alert("hello");
-            $sidebar.stop().animate({
+            /*$sidebar.stop().animate({
                 marginTop: $window.scrollTop() - $offset.top + $topPadding
-            });
-        } else {
+            });*/
+$sidebar.css({"position":"fixed","top":"20px"});
+        } else {/*
             $sidebar.stop().animate({
                 marginTop: 0
-            });
+            });*/
+        if($sidebar.css("position") != "absolute")
+        $sidebar.css({"position":"absolute","top":"150px"});
+
         }
     });
 });
