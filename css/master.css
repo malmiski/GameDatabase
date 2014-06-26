@@ -1,0 +1,79 @@
+@font-face{ 
+	font-family: "Bebas Neue"; 
+	src: url(../fonts/BebasNeue.otf);
+}
+html,body{
+	width:100%;
+	height:100%;
+	margin:0;
+	padding:0;
+	/*background-image:url("../img/img_bg.png");
+	*//*background:no-repeat;
+	background-size:100% 100%;*/
+}
+body{
+		/*background: url(../img/img_diagonal_bg.png) #efe9f0;*/
+		background: url(../img/backy.png) #5EE9FF /*#BDE9F0*/;
+}
+html::selection,body::selection{
+		display:none;
+}
+input[type="checkbox"]{
+	/*float:left;
+	width:0px;
+	opacity:0;
+	height:0px;*/
+	vertical-align:middle;
+}
+input[type="checkbox"]+label{
+	cursor:pointer;
+}
+input[type="checkbox"]+label:before{
+	content:"";
+	display:inline-block;
+	width:19px;
+	height:19px;
+	margin:1px 4px 0 -22px;
+	vertical-align:middle;
+	background:url(../img/items/img_checkbox.png) left top no-repeat;
+	/*background:url(http://d3pr5r64n04s3o.cloudfront.net/tuts/391_checkboxes/check_radio_sheet.png) left top no-repeat;*/
+}
+
+input[type="checkbox"]:hover+label:before{
+		background:url(../img/items/img_checkbox.png) -19px top no-repeat;
+}
+
+input[type="checkbox"]:checked+label:before{
+		/*background:url(http://d3pr5r64n04s3o.cloudfront.net/tuts/391_checkboxes/check_radio_sheet.png) -19px top no-repeat;*/
+		background:url(../img/items/img_checkbox.png) -38px top no-repeat;
+}
+.link{
+text-decoration: none;
+color: #131812;
+font-family: "Helvetica Neue","Helvetica","Sans-Serif","Arial";
+}
+.image{
+}
+button{
+	margin-top:10px;
+	border:#666 solid 3px;
+	background-color: #d0d0d0;
+	font-family:"Helvetica Neue","Helvetica","Sans-Serif","Arial";
+	font-size:15px;
+	color:#232;
+}
+#container_div{
+margin-top: 15px;
+min-height: 900px;
+padding: 10px;
+background-color:#880;
+width: 950px;
+margin-right:auto;
+margin-left:auto;
+margin-bottom: 60px;
+/*
+border-top: 2px solid #114151;
+box-shadow: 0 0px 22px 3px #333;
+-moz-box-shadow: 0 0px 22px 3px #333;
+-webkit-box-shadow: 0 0px 22px 3px #333;*/
+}

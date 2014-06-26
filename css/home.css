@@ -1,0 +1,144 @@
+#title_div{
+	font-size:80px;
+	font-family:"Bebas Neue";
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	color:#567891;
+	width:900px;
+	height:90px;
+	background-color:#ddd;
+	margin-top:40px;
+	-moz-user-select:none;
+}
+#console_container_div{
+/*background-color: #fafafa;*/
+margin-left:auto;
+margin-right:auto;
+height:128px;
+width:950px;
+margin-top: 30px;
+margin-bottom: 30px;
+overflow:visible;
+-moz-user-select:none;
+user-select:none;
+
+}
+h3{
+font-family:"Bebas Neue";
+font-size:45px;
+margin:0;
+text-align:center;
+color:rgb(123,136,14);
+}
+h4{
+font-family:"Bebas Neue";
+font-size:35px;
+margin:0;
+text-align:center;
+color:rgb(255,249,171);
+}
+#game_description_div{
+font-family:"Helvetica Neue","Helvetica","Sans-Serif","Arial";
+font-size:20px;
+margin:0;
+text-align:center;
+color:rgb(51,51,51);
+width:550px;
+height:auto;
+text-align:justify;
+margin-left:auto;
+margin-right:auto;
+}
+#content_div{
+width:950px;
+height:auto;
+padding:20px;
+background:#e4e4ef;
+margin-left:auto;
+margin-right:auto;
+margin-bottom:60px;
+}
+#game_hour_div{
+background-color:#404040;
+width:400px;
+height:500px;
+margin-right:auto;
+margin-left:auto;
+margin-bottom:10px;
+padding-bottom:10px;
+}
+#consoles_and_games_div{
+	/*visibility:hidden;
+	display:none;*/
+}
+#game_of_the_hour_div{
+width:950px;
+height:auto;
+background-color:#aaa;
+}
+#console_container_div::selection{
+	display:none;
+}
+.games_div{
+height: 128px;
+max-height:128px;
+/*width: 822px;*/
+background-color: #fafafa;
+overflow:hidden;
+box-shadow: 0px -1px 4px 0px rgba(0,0,0,.5);
+
+}
+#console_div{
+width: 128px;
+height: 128px;
+background-color: rgba(228,100,156,.8) /*rgba(128,100,156,.8)*/;
+background-position: no-repeat center center; 
+background-size:100% 100%;
+box-shadow: 0px -1px 4px 0px rgba(0,0,0,.5);
+float:left;
+}
+.game_art_img{
+width:128px;
+height:128px;
+margin-left: 6px;
+background-color: #354039;
+float:left;
+display:inline;
+position:relative;
+cursor:pointer;
+-moz-user-select:none;
+user-select:none;
+}
+
+.move_right_container_div{
+	float:right;
+	position:relative;
+	top:-128px;
+	z-index:999;
+}
+.move_right_div{
+/*border-radius:0px 9px 9px 0px;*/
+height:128px;
+width: 32px;
+background-color:#e0e0e0;
+position:absolute;
+right:0;
+top:0;
+cursor:pointer;
+box-shadow: 0px -1px 4px 0px rgba(0,0,0,.5);
+}
+.move_right_div:hover{
+background-color:#c0c0c0;
+box-shadow: 0px -1px 4px 0px rgba(0,0,0,.2);
+}
+.arrow_right{
+width:0;
+height:0;
+border-top:12px solid transparent;
+border-bottom:12px solid transparent;
+border-left:20px solid gray;
+position:absolute;
+top:49px;
+left:8px;
+}

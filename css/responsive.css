@@ -1,0 +1,24 @@
+#sidebar_nav{
+	width:64px;
+}
+.sidebarItem_li{
+	width:64px;
+	height:64px;
+	font-size:0;
+}
+.sidebarItem_li img{
+	width:64px;
+	height:64px;
+}
+#marker{
+	display:none;
+}
+@media screen and (max-width: 1200px){
+
+#sidebar_nav,.sidebarItem_li{
+	display:none;
+	visibility:hidden;
+}
+
+
+}

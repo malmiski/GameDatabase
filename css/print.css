@@ -1,0 +1,4 @@
+#bar_nav, #nav_ul, .sidebar_item_li, #sideBarContainer{
+display:none;
+visibility: hidden;
+}
