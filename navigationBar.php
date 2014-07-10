@@ -34,7 +34,7 @@
 				<img id="searchImage_img" src="img/icons/ic_search.png" width="16px" heigth="16px"/>
 			</a>
 			<form action="games.php" method="get" >
-				<input type="text" name="search_text" id="searchArea_input"><?php //<span id="searchText_span">Search</span>;?>
+				<input type="text" name="search_text" id="searchArea_input">
 			</form>
 		</li>
 	</ul>

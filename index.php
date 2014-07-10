@@ -21,6 +21,9 @@
 	<?php
 	include "navigationBar.php";
 	include "sidebar.php";
+	function __autoload($class){
+		require("inc/".$class.".class.php");
+	}
 
 	$HOST = "localhost";
 	$USER = "root";
