@@ -20,6 +20,5 @@ class GameDatabaseConnection{
 	public function __destruct(){
 		$this->dbConnection->close();
 	}
-
 }
 ?>
