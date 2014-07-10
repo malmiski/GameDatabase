@@ -6,12 +6,12 @@ var $sidebar = $("#sidebarContainer"),
 
 
 $window.scroll(function(){
-        if ($window.scrollTop()+20 > $offset.top) {
+        if ($window.scrollTop()+40 > $offset.top) {
         	//alert("hello");
             /*$sidebar.stop().animate({
                 marginTop: $window.scrollTop() - $offset.top + $topPadding
             });*/
-$sidebar.css({"position":"fixed","top":"20px"});
+$sidebar.css({"position":"fixed","top":"40px"});
         } else {/*
             $sidebar.stop().animate({
                 marginTop: 0
