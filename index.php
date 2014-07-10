@@ -21,7 +21,18 @@
 	<?php
 	include "navigationBar.php";
 	include "sidebar.php";
+<<<<<<< HEAD
   $link = get_gdb_resource();
+=======
+	function __autoload($class){
+		require("inc/".$class.".class.php");
+	}
+
+	$HOST = "localhost";
+	$USER = "root";
+	$PASS = "";
+	$DB = "gdb";
+>>>>>>> 120970d04d654c3ee140ec9476b9b06e89e2edd9
 	$TABLE = "consoles";
 	$query = "SELECT * FROM {$TABLE} ORDER BY id";
 	$arrayOfConsoles = $link->query($query);
