@@ -79,7 +79,7 @@
 //FUNCTIONS
 //===========================================================================================================
 	
-	function generate_game_of_the_hour()
+	function generate_game_of_the_hour() 
   {
   	$link = get_gdb_resource();
   	$query = "SELECT * FROM games";
