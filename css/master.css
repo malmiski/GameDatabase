@@ -13,7 +13,8 @@ html,body{
 }
 body{
 		/*background: url(../img/img_diagonal_bg.png) #efe9f0;*/
-		background: url(../img/backy.png) scroll  #5EE9FF /*#BDE9F0*/;
+		/*background: url(../img/backy.png) scroll  #333 /*#BDE9F0*/;
+		background-color:#333;
 		background-attachment:fixed;
 }
 html::selection,body::selection{
@@ -67,7 +68,7 @@ button{
 margin-top: 70px;
 min-height: 900px;
 padding: 10px;
-background-color:#880;
+background-color:#222;
 width: 950px;
 margin-right:auto;
 margin-left:auto;
