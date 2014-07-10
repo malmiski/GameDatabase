@@ -57,12 +57,12 @@
 }
 .navItem_li{
   width:19%;
-  height:20px;
+  height:100%;
   display:table-cell;
   float:left;
-  border:1px solid #a9a;
+  /*border:1px solid #a9a;*/
   text-align:center;
-  background-color:#a9a9a9;
+  /*background-color:#a9a9a9;*/
   margin:0;
 }
 
