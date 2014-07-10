@@ -26,6 +26,7 @@
 	$query = "SELECT * FROM {$TABLE} ORDER BY id";
 	$arrayOfConsoles = $link->query($query);
 ?>
+<div id="full_container_div">
 <div id="title_div">THE GAME DATABASE</div>
 <div id="content_div">
 	<div id="game_of_the_hour_div">
@@ -45,6 +46,7 @@
  -->
 		</div>
 	</div>
+</div>
 <div id="consoles_and_games_div">
 <?php
 //===========================================================================================================
