@@ -40,6 +40,7 @@
   top:0;
   left:0;
   border-bottom:1px solid #b2b2b2;
+  opacity:.95;
 }
 #nav_ul{
   width:75%;
