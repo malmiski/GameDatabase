@@ -9,10 +9,10 @@
 <select id="console_select" name="console">
 <?php
 $query = "SELECT * FROM consoles ORDER BY id";
-$link = mysqli_connect($HOST, $USER, $PASS, $DB);
+$link = DatabaseManager::getInstance();
 $arrayOfConsoles = $link->query($query);
-for($i = mysqli_num_rows($arrayOfConsoles); $i >0; $i--){
-$console_name = $arrayOfConsoles->fetch_array()["name"];
+for($i = $arrayOfConsoles->num_rows; $i >0; $i--){
+$console_name = $arrayOfConsoles->fetch_assoc()["name"];
 echo "\t".'<option value="'.$console_name.'" >'.$console_name.'</option>'."\n";
 }
 ?>

@@ -50,7 +50,7 @@ include "sidebar.php";
 		<?php
 		$HOST = "localhost";
 		$USER = "root";
-		$PASS = "";
+		$PASS = "password";
 		$DB = "gdb";
 		$TABLE = "games";
 		$console = "";

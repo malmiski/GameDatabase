@@ -1,11 +1,7 @@
 <form method="post" action="change.php">
 <input type="hidden" name="table" value="games"/>
 <?php
-	$HOST = "localhost";
-	$USER = "root";
-	$PASS = "";
-	$DB = "gdb";
-	$link = mysqli_connect($HOST,$USER,$PASS,$DB);
+	$link = DatabaseManager::getInstance();
 	$arrayOfIds =  isset( $_POST["selected"] )? $_POST["selected"] : NULL;
 
 if(count($arrayOfIds) > 0){
@@ -16,12 +12,12 @@ echo '<input type="hidden" name="ids[]" value="'.$i.'" />'."\n";
 echo '<div id="tabs">'."\n\n";
 echo '<ul>'."\n";
 foreach($arrayOfIds as $id){
-	$game = $link->query("SELECT * FROM games WHERE id = {$id}")->fetch_array();
+	$game = $link->query("SELECT * FROM games WHERE id = {$id}")->fetch_assoc();
 	echo '<li><a href="#tab'.$id.'">'.$game["name"].'</a></li>'."\n";
 }
 echo '</ul>'."\n\n";
 foreach($arrayOfIds as $var){
-	$game = $link->query("SELECT * FROM games WHERE id = {$var}")->fetch_array();
+	$game = $link->query("SELECT * FROM games WHERE id = {$var}")->fetch_assoc();
 echo '<div id="tab'.$game["id"].'">'."\n\n";
 echo '<div id="content_div" >'."\n";
 echo '<label for="name_input">Name:</label>'."\n".
@@ -32,10 +28,10 @@ echo '<label for="name_input">Name:</label>'."\n".
 
 
 $query = "SELECT * FROM consoles ORDER BY id";
-$link = mysqli_connect($HOST, $USER, $PASS, $DB);
+$link = DatabaseManager::getInstance();
 $arrayOfConsoles = $link->query($query);
-for($i = mysqli_num_rows($arrayOfConsoles); $i >0; $i--){
-$console_name = $arrayOfConsoles->fetch_array()["name"];
+for($i = $arrayOfConsoles->num_rows; $i >0; $i--){
+$console_name = $arrayOfConsoles->fetch_assoc()["name"];
 if($console_name == $game["console"])
 echo "\t".'<option value="'.$console_name.'" selected>'.$console_name.'</option>'."\n";
 else

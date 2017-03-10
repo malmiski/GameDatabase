@@ -5,17 +5,14 @@
 	<nav id="sidebar_nav">
 		<ul id="consoles_ul">
 			<?php
-			$HOST = "localhost";
-			$USER = "root";
-			$PASS = "";
-			$DB = "gdb";
+			require("DatabaseManager.php");
 			$TABLE = "consoles";
 			$query = "SELECT * FROM {$TABLE} ORDER BY id";
-			$link = mysqli_connect($HOST, $USER, $PASS, $DB);
+			$link = DatabaseManager::getInstance(); 
 			$arrayOfConsoles = $link->query($query);
 	
-			for($i = mysqli_num_rows($arrayOfConsoles); $i >0; $i--){
-				$array = $arrayOfConsoles->fetch_array();
+			for($i = $arrayOfConsoles->num_rows; $i >0; $i--){
+				$array = $arrayOfConsoles->fetch_assoc();
 				$consoleName = $array["name"];
 				$lowerCaseName=  strtolower($consoleName);
 				$lowerCaseName = str_replace(" ", "_", $lowerCaseName);

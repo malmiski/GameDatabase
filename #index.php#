@@ -21,14 +21,14 @@
 <?php
 	include "navigationBar.php";
 	include "sidebar.php";
-
+	require("DatabaseManager.php");
 		
 	
-	$link = get_gdb_resource();
-	$TABLE = "consoles";
-	$query = "SELECT * FROM {$TABLE} ORDER BY id";
-	$arrayOfConsoles = $link->query($query);
-?>
+//	$link = get_gdb_resource();
+//	$TABLE = "consoles";
+//	$query = "SELECT * FROM {$TABLE} ORDER BY id";
+//	$arrayOfConsoles = $link->query($query);
+
 
 <div id="full_container_div">
 <div id="title_div">THE GAME DATABASE</div>
@@ -43,7 +43,11 @@
 		</div>
 		<h4><?php echo $game["name"]." ". "[". $game["console"]."]";?></h4>
 		<div  id="game_description_div">
-
+<!-- 			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+			Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+			Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+ -->
 		</div>
 	</div>
 </div>
@@ -71,6 +75,7 @@
 			
 	$gameOfTheHourID = $gameIDs[array_rand($gameIDs)];
 
+ 			echo "the game of the hour id is $gameOfTheHourID";
  			$query="SELECT * FROM games WHERE id = '{$gameOfTheHourID}'";
 			$arrayOfGames = $link->query($query);
 			
