@@ -21,11 +21,8 @@
 		</a>
 	</div>
 	<div id="container_div"/>
-			<?php
-			$HOST = "localhost";
-			$USER = "root";
-			$PASS = "";
-			$DB = "gdb";
+	<?php
+	   include("DatabaseManager.php");
 			$TABLE = init_variable_with_post("table");
 
 
@@ -49,7 +46,7 @@
 			$image = $images[$index];
 
 			$query = "UPDATE `gdb`.`games` SET `name` = '{$escape_name}', `console` = '{$console}', `publisher` = '{$publisher}', `publish_date` = '{$date}', `price` = NULL, `image` = '{$image}' WHERE `games`.`id` = {$id}";
-			$link = mysqli_connect($HOST, $USER, $PASS, $DB);
+			$link = DatabaseManager::getInstance();
 			$link->query($query);
 			$name = str_replace("\'", "'", $name);
 			echo "<tr><td>{$name}</td><td>{$console}</td><td>{$publisher}</td><td>{$date}</td></tr>";

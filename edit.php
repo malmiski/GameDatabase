@@ -24,12 +24,13 @@
 		</a>
 	</div>
 	<div id="container_div">
-	<?php
-	$HOST = "localhost";
+	  <?php
+	include("DatabaseManager.php");
+/*	$HOST = "localhost";
 	$USER = "root";
 	$PASS = "";
 	$DB = "gdb";
-	$TABLE;
+*/	$TABLE;
 	$operation;
 
 	if(isset($_POST["table"]))
@@ -74,7 +75,7 @@
 			foreach($to_delete as $val){
 				echo "<br>".$val; 
 				$query = "DELETE FROM games WHERE id = ".$val;
-				$link = mysqli_connect($HOST, $USER, $PASS, $DB);
+				$link = DatabaseManager::getInstance();
 				$success = $link->query($query);
 				echo $success? "Successfully deleted id number ".$val." from the database! If you didn't want to do this, sorry!": "Couldn't delete";
 			}
