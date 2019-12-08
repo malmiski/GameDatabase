@@ -5,12 +5,11 @@
 	<nav id="sidebar_nav">
 		<ul id="consoles_ul">
 			<?php
-			require("DatabaseManager.php");
 			$TABLE = "consoles";
 			$query = "SELECT * FROM {$TABLE} ORDER BY id";
-			$link = DatabaseManager::getInstance(); 
+			$link = DatabaseManager::getInstance();
 			$arrayOfConsoles = $link->query($query);
-	
+
 			for($i = $arrayOfConsoles->num_rows; $i >0; $i--){
 				$array = $arrayOfConsoles->fetch_assoc();
 				$consoleName = $array["name"];

@@ -7,7 +7,7 @@
 
 	<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/master.js"></script>
-	<?php 
+	<?php
 	include "title.php";
 	?>
 </head>
@@ -15,7 +15,7 @@
 	<?php
 	include "navigationBar.php";
 	?>
-	<div id="logoContainer_div"> 
+	<div id="logoContainer_div">
 		<a href="http://www.m-tech.com/" class="link">
 			<img src="img/img_logo.png" class="image" id="logo_img"/>
 		</a>
@@ -45,7 +45,7 @@
 			$date = $dates[$index];
 			$image = $images[$index];
 
-			$query = "UPDATE `gdb`.`games` SET `name` = '{$escape_name}', `console` = '{$console}', `publisher` = '{$publisher}', `publish_date` = '{$date}', `price` = NULL, `image` = '{$image}' WHERE `games`.`id` = {$id}";
+			$query = "UPDATE `gdb`.`games` SET `name` = '{$escape_name}', `console` = '{$console}', `publisher` = '{$publisher}', `publish_date` = '{$date}', `price` = NULL, `image` = '{$image}' WHERE `games`.`id` = '{$id}'";
 			$link = DatabaseManager::getInstance();
 			$link->query($query);
 			$name = str_replace("\'", "'", $name);

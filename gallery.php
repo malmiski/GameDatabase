@@ -6,9 +6,9 @@
 
 	<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/master.js"></script>
-	<?php 
-	include "title.php";
-	?>
+	<?php
+    include "title.php";
+    ?>
 </head>
 <body>
 <?php
@@ -28,7 +28,7 @@ include "navigationBar.php";
 		</tr>
 		<?php
 
-		?>
+        ?>
 	</tbody>
 </table>
 </body>
