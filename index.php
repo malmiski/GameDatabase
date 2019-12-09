@@ -38,7 +38,18 @@
 		<div id="game_hour_div">
 			<?php
 				 $game=generate_game_of_the_hour();
-				 echo '<img class="game_hour_img" src="img/covers/'.$game["image"].'" alt="'.$game["name"].'">'."\n";
+				 ?>
+				 <form method="post" action="edit.php">
+					 <input type="hidden" name="selected[]" value="<?php echo $game["id"]; ?>"/>
+					 <input type="hidden" name="ids[]" value="<?php echo $game["id"]; ?>"/>
+					 <input type="hidden" name="table" value="games"/>
+					 <input type="hidden" name="operation" value="edit"/>
+					 <button action="submit" style="border:0px;padding:0px;margin-top:0px;">
+						 <img class='game_hour_img' src='img/covers/<?php echo $game["image"]; ?>'/>
+					 </button>
+				 </form>
+				 <?php
+	//			 echo '<img class="game_hour_img" src="img/covers/'.$game["image"].'" alt="'.$game["name"].'">'."\n";
 			?>
 		</div>
 		<h4><?php echo $game["name"]." ". "[". $game["console"]."]";?></h4>

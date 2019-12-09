@@ -3,7 +3,7 @@ $(document).ready(function(){
 
 	$("#searchArea_input").focusin(function(){
 		$("#searchArea_input").stop().animate({
-			"width": "95%"
+			"width": "70%"
 		},600);
 	});
 
@@ -20,7 +20,7 @@ $(document).ready(function(){
 				if($(this).is(first)){
  					first.detach();
  					gameDiv.append(first);
- 				
+
  				}
 
  			});

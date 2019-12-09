@@ -17,15 +17,17 @@ if (count($arrayOfIds) > 0) {
     echo '</ul>'."\n\n";
     foreach ($arrayOfIds as $var) {
         $game = $link->query("SELECT * FROM games WHERE id = {$var}")->fetch_assoc();
-        echo '<div id="tab'.$game["id"].'">'."\n\n";
-        echo '<div id="content_div" >'."\n";
-        echo '<label for="name_input">Name:</label>'."\n".
-'<input type="text" id="name_input" value="'.$game["name"].'" name="names[]">'."\n".
+        $game_class_id = 'tab'.$game["id"];
+        ?>
+        <div id="<?php echo $game_class_id;?>">
+        <div id="content_div" >
+        <label for="name_input">Name:</label>
+        <input type="text" id="name_input" value="<?php echo $game["name"] ?>" name="names[]">
 
-'<label for="console_select">Console:</label>'."\n".
-'<select id="console_select" name="consoles[]">'."\n";
+        <label for="console_select">Console:</label>
+        <select id="console_select" name="consoles[]">
 
-
+      <?php
         $query = "SELECT * FROM consoles ORDER BY id";
         $link = DatabaseManager::getInstance();
         $arrayOfConsoles = $link->query($query);
@@ -37,24 +39,31 @@ if (count($arrayOfIds) > 0) {
                 echo "\t".'<option value="'.$console_name.'" >'.$console_name.'</option>'."\n";
             }
         }
-
-        echo '</select>'."\n".
-
-'<label for="date_select_input">Date:</label>'."\n".
-'<input type="text" id="date_select_input" class="date_select_input" value="'.$game["publish_date"].'" name="dates[]"/>'."\n".
-
-'<label for="publisher_input">Publisher:</label>'."\n".
-'<input type="text" value="'.$game["publisher"].'" name="publishers[]"/>'."\n".
-'</div>'."\n\n";
+        ?>
+        </select>
+        <label for="date_select_input">Date:</label>
+        <input type="text" id="date_select_input" class="date_select_input" value="<?php echo $game["publish_date"] ?>" name="dates[]"/>
+        <label for="publisher_input">Publisher:</label>
+        <input type="text" value="<?php echo $game["publisher"] ?>" name="publishers[]"/>
+        </div>
+        <?php
         if ($game["image"] != "") {
-            echo '<div style="background: url(img/covers/'.$game["image"].') no-repeat scroll center center #AAA" class="image_marker_div"></div>'."\n";
+          ?>
+            <div style="background: url(img/covers/<?php echo $game["image"] ?>) no-repeat scroll center center #AAA" class="image_marker_div">
+            </div>
+        <?php
         } else {
-            echo '<div class="image_marker_div"></div>'."\n";
+          ?>
+            <div class="image_marker_div"></div>
+            <?php
         }
-
-        echo '<input type="text" name="images[]" value="'.$game["image"].'" class="path_to_cover"/>'."\n".'</div>'."\n\n";
-    }
-    echo "\n".'</div>';
+        ?>
+        <input type="text" name="images[]" value="<?php echo $game["image"] ?>" class="path_to_cover"/>
+        </div>
+        <?php
+    } ?>
+    </div>
+    <?php
 }
 ?>
 

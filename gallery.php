@@ -14,10 +14,12 @@
 		.gallery_img{
 			width:150px;
 			height:200px;
-			margin: 0
+			margin: 0px;
 		}
 		button{
-
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
 		}
 		form{
 			display: inline;;
