@@ -6,20 +6,20 @@ class DatabaseManager
     public $mongoManager;
     public $str = "hellow";
 
-    private $host = 'localhost';
+    private $host = 'gdb.cluster-ccsjif6ecw0i.us-east-1.rds.amazonaws.com';
     private $user = 'root';
     private $password = 'password';
     private $databaseName = "gdb";
 
-		private $mongoHost = 'localhost:27017';
+		private $mongoHost = 'mongodb://54.146.137.101:27017';
 		private $mongoUser = '';
 		private $mongoPassword = '';
-		private $mongoDatabaseName = 'homework_3';
+		private $mongoDatabaseName = 'gdb';
 
     private function __construct()
     {
         $this->link = new mysqli($this->host, $this->user, $this->password, $this->databaseName);
-        $this->mongoManager = new MongoDB\Driver\Manager("mongodb://localhost:27017");
+        $this->mongoManager = new MongoDB\Driver\Manager($this->mongoHost);
     }
     public function __destruct()
     {
@@ -44,13 +44,18 @@ class DatabaseManager
         return $this->link->query($query);
     }
 
+    public function guid(){
+      return sprintf('%04X%04X-%04X-%04X-%04X-%04X%04X%04X', mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(16384, 20479), mt_rand(32768, 49151), mt_rand(0, 65535), mt_rand(0, 65535), mt_rand(0, 65535));
+    }
+
 		public function mongoQuery($collection, $mongoQuery){
 			return $this->mongoManager->executeQuery($this->mongoDatabaseName.'.'.$collection, new MongoDB\Driver\Query($mongoQuery))->toArray();
 		}
 
     public function mongoInsert($collection, $mongoDocument){
-      $bulk = new MongoDB\Driver\BulkWrite;
+      $bulk = new MongoDB\Driver\BulkWrite();
       $bulk->insert($mongoDocument);
-      $this->mongoManager->executeBulkWrite($this->mongoDatabaseName.'.'.$collection, $bulk);
+      $writeConcern = new MongoDB\Driver\WriteConcern(MongoDB\Driver\WriteConcern::MAJORITY, 100);
+      $this->mongoManager->executeBulkWrite($this->mongoDatabaseName.'.'.$collection, $bulk, $writeConcern);
     }
 }

@@ -10,7 +10,7 @@ function try_login($username, $pass)
 {
     if (user_matches($username, crypt($pass, "saltsalt"))) {
         session_start();
-        $_SESSION["username"] = "mo";
+        $_SESSION["username"] = $username;
         return true;
     }
     return false;
@@ -23,25 +23,26 @@ function logout()
 }
 
 
-function try_register($user, $password)
+function try_register($user, $password, $email)
 {
     if (user_exists($user)) {
         return false;
     }
     $db = DatabaseManager::getInstance();
-    $db->mongoInsert("users", ["username" => $user, "password" => $password]);
+    $db->mongoInsert("users", ["username" => $user, "password" => crypt($password, "saltsalt"), "email" => $email]);
+    return true;
 }
 
 function user_exists($user)
 {
     $db = DatabaseManager::getInstance();
     // Check if the user exists and the password matches
-    return ($db->mongoQuery("users", ["username"=>$user]) == []);
+    return !empty($db->mongoQuery("users", ["username"=>$user]));
 }
 
 function user_matches($user, $pass)
 {
     $db = DatabaseManager::getInstance();
     // Check if the user exists and the password matches
-    return ($db->mongoQuery("users", ["username"=>$user, "password"=>$pass]) == []);
+    return !empty($db->mongoQuery("users", ["username"=>$user, "password"=>$pass]));
 }

@@ -22,7 +22,6 @@
 	</div>
 	<div id="container_div"/>
 	<?php
-	   include("DatabaseManager.php");
 			$TABLE = init_variable_with_post("table");
 
 

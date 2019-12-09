@@ -32,13 +32,15 @@
 </style>
 <div id="login-container">
 <form action="login.php" method="post">
-  <div>Login to the Game Database</div>
+  <h3>Login to the Game Database</h3>
+  <br><br>
   <label for="username">Username</label>
   <input name="username" type="text">
   <br>
   <label for="password">Password</label>
-  <input name="password" type="text">
+  <input name="password" type="password">
   <br>
   <button action="submit">Login</button>
+  <a class="btn btn-border" href="register.php">Register</a>
 </form>
 </div>

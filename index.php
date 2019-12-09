@@ -22,8 +22,8 @@
 	include "navigationBar.php";
 	include "sidebar.php";
 
-		
-	
+
+
 	$link = get_gdb_resource();
 	$TABLE = "consoles";
 	$query = "SELECT * FROM {$TABLE} ORDER BY id";
@@ -34,7 +34,7 @@
 <div id="title_div">THE GAME DATABASE</div>
 <div id="content_div">
 	<div id="game_of_the_hour_div">
-		<h3>GAME OF THE HOUR</h3>
+		<h3>RANDOM GAME FROM YOUR COLLECTION</h3>
 		<div id="game_hour_div">
 			<?php
 				 $game=generate_game_of_the_hour();
@@ -52,36 +52,36 @@
 //===========================================================================================================
 //FUNCTIONS
 //===========================================================================================================
-	
-	function generate_game_of_the_hour() 
+
+	function generate_game_of_the_hour()
   {
   	$link = get_gdb_resource();
   	$query = "SELECT * FROM games";
-  	
+
   	$arrayOfGames = $link->query($query);
   	$numGames = $arrayOfGames->num_rows;
-  	
+
     	$gameIDs = array();
     	for($i=0; $i<$numGames; $i++)
 	{
 		$game = $arrayOfGames->fetch_assoc();
-		$gameIDs[] = $game["id"];	
+		$gameIDs[] = $game["id"];
 	}
-			
-			
+
+
 	$gameOfTheHourID = $gameIDs[array_rand($gameIDs)];
 
  			$query="SELECT * FROM games WHERE id = '{$gameOfTheHourID}'";
 			$arrayOfGames = $link->query($query);
-			
+
 			return $arrayOfGames->fetch_assoc();
-    
-  	
+
+
 
   }
-	
+
 	//returns a gdb database resource
-	function get_gdb_resource() 
+	function get_gdb_resource()
   {
 	return DatabaseManager::getInstance();
   }

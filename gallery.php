@@ -6,6 +6,23 @@
 
 	<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/master.js"></script>
+	<style>
+		#gallery_container{
+			margin-top: 34pt;
+			text-align: center;
+		}
+		.gallery_img{
+			width:150px;
+			height:200px;
+			margin: 0
+		}
+		button{
+
+		}
+		form{
+			display: inline;;
+		}
+	</style>
 	<?php
     include "title.php";
     ?>
@@ -14,22 +31,28 @@
 <?php
 include "navigationBar.php";
 ?>
-<div id="logoContainer_div"> 
-	<a href="http://www.m-tech.com/" class="link">
-	<img src="img/img_logo.png" class="image" id="logo_img"/>
-	</a>
-</div>
-<table>
-	<tbody>
-		<tr>
-			<th>Name</th>
-			<th>Creation Date</th>
-			<th>Publisher</th>
-		</tr>
-		<?php
+<div id="gallery_container">
+<?php
+	$res = DatabaseManager::getInstance()->query("SELECT id, image FROM games");
+	for($i = 0; $i < $res->num_rows; $i++){
+		$response = $res->fetch_assoc();
+		$image = $response["image"];
+		if($image == null || $image == "") continue;
+		$id = $response["id"];
+		?>
 
-        ?>
-	</tbody>
-</table>
+		<form method="post" action="edit.php">
+			<input type="hidden" name="selected[]" value="<?php echo $id; ?>"/>
+			<input type="hidden" name="ids[]" value="<?php echo $id; ?>"/>
+			<input type="hidden" name="table" value="games"/>
+			<input type="hidden" name="operation" value="edit"/>
+			<button action="submit">
+				<img class='gallery_img' src='img/covers/<?php echo $image; ?>'/>
+			</button>
+		</form>
+		<?php
+	}
+?>
+</div>
 </body>
 </html>

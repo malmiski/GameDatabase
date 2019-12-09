@@ -7,7 +7,7 @@
 
 	<script type="text/javascript" src="js/jquery/jquery-1.11.1.min.js"></script>
 	<script type="text/javascript" src="js/master.js"></script>
-	<?php 
+	<?php
 	include "title.php";
 	?>
 </head>
@@ -15,7 +15,7 @@
 	<?php
 	include "navigationBar.php";
 	?>
-	<div id="logoContainer_div"> 
+	<div id="logoContainer_div">
 		<a href="http://www.m-tech.com/" class="link">
 			<img src="img/img_logo.png" class="image" id="logo_img"/>
 		</a>
@@ -59,10 +59,8 @@
 				$image = $_POST["image"];
 			}
 
-			$query = "INSERT INTO `gdb`.`games` (`id`, `name`, `console`, `publisher`, `publish_date`, `price`, `image`) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', NULL, '{$image}')";
-			echo $query;
-			$link = mysqli_connect($HOST, $USER, $PASS, $DB);
-			$link->query($query);
+			$query = "INSERT INTO games(id, name, console, publisher, publish_date, price, image, description) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', NULL, '{$image}', '')";
+			DatabaseManager::getInstance()->query($query);
 			$name = str_replace("\'", "'", $name);
 			echo "<table><tbody><tr><td>{$name}</td><td>{$console}</td><td>{$publisher}</td><td>{$date}</td></tr></tbody></table>";
 		}

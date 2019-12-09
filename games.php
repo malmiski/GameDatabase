@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="js/jquery/jquery.tablesorter.js"></script>
 	<script type="text/javascript" src="js/master.js"></script>
 	<script type="text/javascript" src="js/game.js"></script>
-	<?php 
+	<?php
 	include "title.php";
 	?>
 </head>
@@ -18,7 +18,7 @@
 include "navigationBar.php";
 include "sidebar.php";
 ?>
-<div id="logoContainer_div"> 
+<div id="logoContainer_div">
 	<a href="http://www.m-tech.com/" class="link">
 	<img src="img/img_logo.png" class="image" id="logo_img"/>
 	</a>
@@ -61,8 +61,11 @@ include "sidebar.php";
 		$query = "SELECT * FROM {$TABLE} WHERE console = '{$console}'";
 		else
 		$query = "SELECT * FROM {$TABLE}";
-		$link = mysqli_connect($HOST, $USER, $PASS, $DB);
-		$arrayOfConsoles = $link->query($query);
+		if(isset($_GET["search_text"])){
+			$search_text = $_GET["search_text"];
+			$query = $query." WHERE name LIKE '%{$search_text}%'";
+		}
+		$arrayOfConsoles = DatabaseManager::getInstance()->query($query);
 
 		for($i = mysqli_num_rows($arrayOfConsoles); $i >0; $i--){
 			$array = $arrayOfConsoles->fetch_array();
@@ -107,7 +110,7 @@ include "sidebar.php";
 	</tbody>
 </table>
 
-<?php 
+<?php
 if($console == ''){
 	$console = "*";
 }

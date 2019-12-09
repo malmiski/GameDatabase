@@ -4,8 +4,6 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 
-require("DatabaseManager.php");
-
 $link = DatabaseManager::getInstance();
 $query = "SELECT * FROM games";
 $res = $link->query($query);
@@ -53,7 +51,7 @@ if($connection->connect_errno){
 
 echo "something went wrong";
 $query = "SELECT * FROM games";
-  	
+
 $arrayOfGames = $connection->query($query);
 
 echo var_dump($arrayOfGames);
