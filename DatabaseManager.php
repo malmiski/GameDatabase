@@ -10,8 +10,7 @@ class DatabaseManager
     private $user = 'root';
     private $password = 'password';
     private $databaseName = "gdb";
-
-		private $mongoHost = 'mongodb://54.146.137.101:27017';
+		private $mongoHost = 'mongodb://mongo1,mongo2,mongo3/?replicaSet=rs0';
 		private $mongoUser = '';
 		private $mongoPassword = '';
 		private $mongoDatabaseName = 'gdb';
