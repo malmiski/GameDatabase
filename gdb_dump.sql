@@ -1,4 +1,3 @@
-USE gdb;
 -- phpMyAdmin SQL Dump
 -- version 4.1.6
 -- http://www.phpmyadmin.net
@@ -8,6 +7,7 @@ USE gdb;
 -- Server version: 5.6.16
 -- PHP Version: 5.5.9
 
+USE gdb;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
