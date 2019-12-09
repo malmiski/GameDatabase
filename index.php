@@ -45,7 +45,7 @@
 					 <input type="hidden" name="table" value="games"/>
 					 <input type="hidden" name="operation" value="edit"/>
 					 <button action="submit" style="border:0px;padding:0px;margin-top:0px;">
-						 <img class='game_hour_img' src='img/covers/<?php echo $game["image"]; ?>'/>
+						 <img class='game_hour_img' src='img/covers/<?php echo $game["image"];?>' alt="<?php echo $game["name"];?>" title="<?php echo $game["name"] ?>"/>
 					 </button>
 				 </form>
 				 <?php

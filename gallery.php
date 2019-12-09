@@ -35,7 +35,7 @@ include "navigationBar.php";
 ?>
 <div id="gallery_container">
 <?php
-	$res = DatabaseManager::getInstance()->query("SELECT id, image FROM games");
+	$res = DatabaseManager::getInstance()->query("SELECT id, image, name FROM games");
 	for($i = 0; $i < $res->num_rows; $i++){
 		$response = $res->fetch_assoc();
 		$image = $response["image"];
@@ -49,7 +49,7 @@ include "navigationBar.php";
 			<input type="hidden" name="table" value="games"/>
 			<input type="hidden" name="operation" value="edit"/>
 			<button action="submit">
-				<img class='gallery_img' src='img/covers/<?php echo $image; ?>'/>
+				<img class='gallery_img' src='img/covers/<?php echo $image; ?>' alt='<?php echo $response["name"]?>' title="<?php echo $response["name"]?>"/>
 			</button>
 		</form>
 		<?php
