@@ -15,7 +15,7 @@
 	<script type="text/javascript" src="js/master.js"></script>
 	<script type="text/javascript" src="js/home.js"></script>
 
-	<title>That's life</title>
+	<title>The Game Database</title>
 </head>
 <body>
 <?php

@@ -16,6 +16,11 @@
 			height:200px;
 			margin: 0px;
 		}
+		.gallery_img:hover{
+			border-color: aliceblue;
+			border-width: 5;
+			border-style: solid;
+		}
 		button{
 			margin: 0px;
 			padding: 0px;
