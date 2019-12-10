@@ -20,6 +20,7 @@ if (count($arrayOfIds) > 0) {
         $game_class_id = 'tab'.$game["id"];
         ?>
         <div id="<?php echo $game_class_id;?>">
+        <div style="display:flex;">
         <div id="content_div" >
         <label for="name_input">Name:</label>
         <input type="text" id="name_input" value="<?php echo $game["name"] ?>" name="names[]">
@@ -45,11 +46,14 @@ if (count($arrayOfIds) > 0) {
         <input type="text" id="date_select_input" class="date_select_input" value="<?php echo $game["publish_date"] ?>" name="dates[]"/>
         <label for="publisher_input">Publisher:</label>
         <input type="text" value="<?php echo $game["publisher"] ?>" name="publishers[]"/>
+        <label for="price_input">Price:</label>
+        <input type="number" min="0.01" step="0.01" max="2500" value="<?php echo $game["price"] ?>" name="prices[]"/>
         </div>
+        <div class="image_container" style="margin-left:auto;">
         <?php
         if ($game["image"] != "") {
           ?>
-            <div style="background: url(img/covers/<?php echo $game["image"] ?>) no-repeat scroll center center #AAA" class="image_marker_div">
+            <div style="background: url(<?php echo $game["image"] ?>) no-repeat scroll center center #AAA" class="image_marker_div">
             </div>
         <?php
         } else {
@@ -58,7 +62,13 @@ if (count($arrayOfIds) > 0) {
             <?php
         }
         ?>
-        <input type="text" name="images[]" value="<?php echo $game["image"] ?>" class="path_to_cover"/>
+        <input style="float: right;" type="text" name="images[]" value="<?php echo $game["image"] ?>" class="path_to_cover"/>
+        </div>
+      </div>
+        <div>
+          <label for="description">Description:</label>
+          <textarea name="descriptions[]" style="width: 100%; height:230px; resize: none;" rows="10"> <?php echo $game["description"];?></textarea>
+        </div>
         </div>
         <?php
     } ?>

@@ -36,10 +36,10 @@ if(!is_logged_in()){
 			</li>
 		</a>
 		<li id="search_li" class="navItem_li">
-			<a href="games.php?console=NES">
-				<img id="searchImage_img" src="img/icons/ic_search.png" width="16px" heigth="16px"/>
-			</a>
 			<form action="games.php" method="get" >
+			<button style="border:0px;margin:5px;padding:0px;background:none;display:inline;width:16px;height:16px;">
+				<img id="searchImage_img" src="img/icons/ic_search.png" width="16px" heigth="16px"/>
+			</button>
 				<input type="text" name="search_text" id="searchArea_input">
 			</form>
 		</li>

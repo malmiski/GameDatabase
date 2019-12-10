@@ -45,16 +45,16 @@
 					 <input type="hidden" name="table" value="games"/>
 					 <input type="hidden" name="operation" value="edit"/>
 					 <button action="submit" style="border:0px;padding:0px;margin-top:0px;">
-						 <img class='game_hour_img' src='img/covers/<?php echo $game["image"];?>' alt="<?php echo $game["name"];?>" title="<?php echo $game["name"] ?>"/>
+						 <img class='game_hour_img' src='<?php echo $game["image"];?>' alt="<?php echo $game["name"];?>" title="<?php echo $game["name"] ?>"/>
 					 </button>
 				 </form>
 				 <?php
-	//			 echo '<img class="game_hour_img" src="img/covers/'.$game["image"].'" alt="'.$game["name"].'">'."\n";
+	//			 echo '<img class="game_hour_img" src="'.$game["image"].'" alt="'.$game["name"].'">'."\n";
 			?>
 		</div>
 		<h4><?php echo $game["name"]." ". "[". $game["console"]."]";?></h4>
 		<div  id="game_description_div">
-
+				<p><?php echo $game["description"];?></p>
 		</div>
 	</div>
 </div>

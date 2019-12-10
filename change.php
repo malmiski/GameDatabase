@@ -33,7 +33,8 @@
 			$publishers = init_variable_with_post("publishers");
 			$dates = init_variable_with_post("dates");
 			$images = init_variable_with_post("images");
-
+			$descriptions = init_variable_with_post("descriptions");
+			$prices = init_variable_with_post("prices");
 			echo '<table>'."\n<tbody>\n";
 			for($index = 0; $index < count($ids); $index++){
 			$id = $ids[$index];
@@ -43,8 +44,9 @@
 			$publisher = $publishers[$index];
 			$date = $dates[$index];
 			$image = $images[$index];
-
-			$query = "UPDATE `gdb`.`games` SET `name` = '{$escape_name}', `console` = '{$console}', `publisher` = '{$publisher}', `publish_date` = '{$date}', `price` = NULL, `image` = '{$image}' WHERE `games`.`id` = '{$id}'";
+			$description = addslashes($descriptions[$index]);
+			$price = $prices[$index];
+			$query = "UPDATE `gdb`.`games` SET `name` = '{$escape_name}', `console` = '{$console}', `publisher` = '{$publisher}', `publish_date` = '{$date}', `price` = '{$price}', `image` = '{$image}', `description` = '{$description}' WHERE `games`.`id` = '{$id}'";
 			$link = DatabaseManager::getInstance();
 			$link->query($query);
 			$name = str_replace("\'", "'", $name);

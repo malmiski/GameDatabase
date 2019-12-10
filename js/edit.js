@@ -7,9 +7,9 @@ $(document).ready(function(){
 		var text = this.value;
 		text = $.trim(text);
 		if(text != "")
-			$(this).siblings(".image_marker_div").first().css("background","url(img/covers/"+text+") no-repeat scroll center center #AAA");
+			$(this).siblings(".image_marker_div").first().css("background","url("+text+") no-repeat scroll center center #AAA");
 		else
 			$(this).siblings(".image_marker_div").first().attr("style", "");
 	});
-	
+
 });
