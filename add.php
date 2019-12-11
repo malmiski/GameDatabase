@@ -37,6 +37,7 @@
 			$date;
 			$publisher;
 			$image;
+			$description;
 
 			if(isset($_POST["console"])){
 				$console= $_POST["console"];
@@ -59,7 +60,15 @@
 				$image = $_POST["image"];
 			}
 
-			$query = "INSERT INTO games(id, name, console, publisher, publish_date, price, image, description) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', NULL, '{$image}', '')";
+			if(isset($_POST["description"])){
+				$description = $_POST["description"];
+			}
+
+			if(isset($_POST["price"])){
+				$price = $_POST["price"];
+			}
+
+			$query = "INSERT INTO games(id, name, console, publisher, publish_date, price, image, description) VALUES (NULL, '{$name}', '{$console}', '{$publisher}', '{$date}', '{$price}', '{$image}', '{$description}')";
 			DatabaseManager::getInstance()->query($query);
 			$name = str_replace("\'", "'", $name);
 			echo "<table><tbody><tr><td>{$name}</td><td>{$console}</td><td>{$publisher}</td><td>{$date}</td></tr></tbody></table>";
