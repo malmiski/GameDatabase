@@ -1,8 +1,5 @@
-<?php 
-/**
-Hello there how are you doing today?
+<?php
 
-*/
 class DatabaseConnection{
 	private $connection;
 	private $dsn;	
